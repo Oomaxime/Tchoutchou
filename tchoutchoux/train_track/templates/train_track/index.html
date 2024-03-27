@@ -1,5 +1,5 @@
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,15 +9,42 @@
 </head>
 <body>
 <header>
-    <a href="/"><img  id="logo" src="" alt="logo"></a>
+    <a href="/"><img  id="logo" src="../../static/train_track/img/logo_white.png" alt="logo"></a>
     <nav>
-        <a href="/random/">Random</a>
-        <input id="searchbar" name="" placeholder="search card" type="search">
+        <a href="/random/">Get a random train !</a>
+        <input id="searchbar" name="" placeholder="magic search" type="search">
     </nav>
 </header>
 
 <main>
-    <h1> INDEX </h1>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Train</th>
+                <th scope="col">Destination</th>
+                <th scope="col">Départ</th>
+                <th scope="col">Arrivée</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ele in Train %}
+            <tr>
+                <th><img src="../../static/train_track/img/picto_ligne/{{ele.name}}.svg" alt=""></th>
+                <td>{{ele.destination}}</td>
+                <td>{{ele.date_start}}</td>
+                <td>{{ele.date_end}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <!--{% for ele in Train %}
+    <div class="tab_row">
+        <img src="../../static/train_track/img/picto_ligne/{{ele.name}}.svg" alt="">
+        <p>{{ele.destination}}</p>
+        <p>{{ele.date_start}}</p>
+        <p>{{ele.date_end}}</p>
+    </div>
+    {% endfor %}-->
 </main>
 <footer>
 </footer>
