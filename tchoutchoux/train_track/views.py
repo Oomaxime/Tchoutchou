@@ -10,8 +10,15 @@ def index(request):
     })
 
 
-def show(request):
-    return render(request, "train_track/show.html", {})
+def show(request, train_ID):
+    myTrain = Train.objects.get(trainID=train_ID)
+    return render(request, "train_track/show.html", {
+        "name": myTrain.name,
+        "destination": myTrain.destination,
+        "date_start": myTrain.date_start,
+        "date_end": myTrain.date_end,
+        "plan": myTrain.plan,
+    })
 
 
 def random(request):

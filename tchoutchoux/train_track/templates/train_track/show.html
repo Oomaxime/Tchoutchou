@@ -1,26 +1,55 @@
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>show</title>
+    <title>index</title>
     <link rel="stylesheet" href="{% static 'train_track/css/style.css' %}">
 
 </head>
 <body>
 <header>
-    <a href="/"><img  id="logo" src="" alt="logo"></a>
+    <a href="/"><img  id="logo" src="../../static/train_track/img/logo_white.png" alt="logo"></a>
     <nav>
-        <a href="/random/">Random</a>
-        <input id="searchbar" name="" placeholder="search card" type="search">
+        <a href="/random/">Get a random train !</a>
+        <input id="searchbar" name="" placeholder="magic search" type="search">
     </nav>
 </header>
 
 <main>
-    <h1> SHOW </h1>
+    <article id="details_article">
+        <div id="title_div">
+            <h1><img src="../../static/train_track/img/picto_ligne/{{name}}.svg" alt="{{name}}"></h1>
+            <h2> {{ destination }}</h2>
+        </div>
+        <div id="plan_div">
+             <img id="plan" src="../../static/train_track/img/plan/{{plan}}" alt="" onclick="displayLargeImage()">
+        </div>
+        <p>Clique sur la carte pour l'agrandire !</p>
+    </article>
+
 </main>
 <footer>
 </footer>
+<script>
+function displayLargeImage() {
 
+    const image = document.getElementById('plan');
+
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+
+    const largeImage = document.createElement('img');
+    largeImage.src = image.src;
+
+    modal.appendChild(largeImage);
+
+    document.body.appendChild(modal);
+
+    modal.onclick = function() {
+        modal.remove();
+    }
+}
+</script>
 </body>
 </html>

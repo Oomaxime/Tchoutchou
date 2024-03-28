@@ -20,6 +20,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name="index"),
-    path('show/<titre_card>', views.show, name="show"),
+    path('show/<train_ID>', views.show, name="show"),
     path('random/', views.random, name="random")
 ]
