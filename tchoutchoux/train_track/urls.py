@@ -21,5 +21,5 @@ from . import views
 urlpatterns = [
     path('', views.index, name="index"),
     path('show/<train_ID>', views.show, name="show"),
-    path('random/', views.random, name="random")
+    path('getrandom/', views.getrandom, name="getrandom"),
 ]

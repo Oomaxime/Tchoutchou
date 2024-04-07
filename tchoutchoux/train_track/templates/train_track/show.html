@@ -11,8 +11,10 @@
 <header>
     <a href="/"><img  id="logo" src="../../static/train_track/img/logo_white.png" alt="logo"></a>
     <nav>
-        <a href="/random/">Get a random train !</a>
-        <input id="searchbar" name="" placeholder="magic search" type="search">
+        <a href="/getrandom/">Get a random train !</a>
+        <form id="searchForm" method="GET">
+            <input id="searchbar" name="train_id" placeholder="Recherche de train par ID" type="search">
+        </form>
     </nav>
 </header>
 
@@ -31,25 +33,6 @@
 </main>
 <footer>
 </footer>
-<script>
-function displayLargeImage() {
-
-    const image = document.getElementById('plan');
-
-    const modal = document.createElement('div');
-    modal.classList.add('modal');
-
-    const largeImage = document.createElement('img');
-    largeImage.src = image.src;
-
-    modal.appendChild(largeImage);
-
-    document.body.appendChild(modal);
-
-    modal.onclick = function() {
-        modal.remove();
-    }
-}
-</script>
+<script src="{% static 'train_track/js/script.js' %}"></script>
 </body>
 </html>
